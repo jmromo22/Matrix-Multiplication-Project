@@ -71,7 +71,7 @@ def main():
     classicalTotalTime = 0
     strassenTotalTime = 0
     divideConquerTotalTime = 0
-    n = 8    
+    n = 2    
     maxMatrixSize = 64
     
     # Loop through matrix sizes from n to maxMatrixSize
@@ -83,6 +83,8 @@ def main():
         
         # Multiply each matrix 10 times and time each operation.
         for i in range(10):
+            print(f"Processing matrix size {n} for iteration {i+1}...")
+
             startTime = time.perf_counter_ns()
             classical_multiplication(MatrixA, MatrixB) 
             finishTime = time.perf_counter_ns()
@@ -100,6 +102,7 @@ def main():
             
         # Increment matrix size for next iteration
         n *= 2
+        
         
     # Print average execution times for each multiplication method
     print("Classical Average Execution Time (sec.): \nFor n = ", f'{n//2:1,}', "   t = {:0.10f}".format(classicalTotalTime/200))
